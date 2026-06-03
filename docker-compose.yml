@@ -16,6 +16,8 @@ services:
   web:
     build: .
     container_name: cimen-web
+    volumes:
+      - ./:/var/www/html:rw
     ports:
       - "8080:80"
     environment:

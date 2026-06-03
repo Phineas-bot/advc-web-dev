@@ -1,0 +1,4 @@
+/* Minimal module-specific styles to avoid 404s */
+body { font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+.dashboard-card { background: #fff; border: 1px solid #e9ecef; border-radius: 6px; }
+.table-responsive table { width: 100%; }

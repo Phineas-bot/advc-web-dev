@@ -20,6 +20,11 @@ date_default_timezone_set('Africa/Accra');
 
 function base_url(string $path = ''): string
 {
+    // If an absolute path is provided, return it unchanged so callers can
+    // redirect to the application root from subdirectories.
+    if ($path !== '' && str_starts_with($path, '/')) {
+        return $path;
+    }
     $base = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
     $base = rtrim($base, '/');
 
@@ -171,7 +176,7 @@ function require_login(): void
 {
     if (!is_logged_in()) {
         flash('error', 'Please log in to continue.', 'warning');
-        redirect('login.php');
+        redirect('/login.php');
     }
 }
 
