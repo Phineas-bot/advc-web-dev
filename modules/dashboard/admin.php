@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
+
+require_role(['admin', 'super_admin']);
+
 $user = current_user();
 $departmentId = (int) ($user['department_id'] ?? 0);
 $departmentStats = array_values(array_filter(department_statistics(), static fn(array $item): bool => (int) $item['id'] === $departmentId));
@@ -12,8 +19,8 @@ $departmentStats = $departmentStats[0] ?? ['department_name' => $user['departmen
             <p class="text-secondary mb-0">Manage employees and department records for your assigned department.</p>
         </div>
         <div class="d-flex gap-2">
-            <a class="btn btn-cimen" href="<?= e(base_url('department.php?id=' . $departmentId)) ?>">Open Department</a>
-            <a class="btn btn-outline-cimen" href="<?= e(base_url('modules/employees/index.php')) ?>">Employees</a>
+            <a class="btn btn-cimen" href="<?= e(base_url('/modules/employees/department.php?id=' . $departmentId)) ?>">Open Department</a>
+            <a class="btn btn-outline-cimen" href="<?= e(base_url('/modules/employees/index.php')) ?>">Employees</a>
         </div>
     </div>
 
@@ -42,10 +49,10 @@ $departmentStats = $departmentStats[0] ?? ['department_name' => $user['departmen
         <h2 class="h5 mb-3">Department operations</h2>
         <div class="row g-3">
             <div class="col-md-6">
-                <a class="btn btn-outline-cimen w-100 py-3" href="<?= e(base_url('department.php?id=' . $departmentId)) ?>">View and manage records</a>
+                <a class="btn btn-outline-cimen w-100 py-3" href="<?= e(base_url('/modules/employees/department.php?id=' . $departmentId)) ?>">View and manage records</a>
             </div>
             <div class="col-md-6">
-                <a class="btn btn-cimen w-100 py-3" href="<?= e(base_url('pdf/export.php?type=department_records&department_id=' . $departmentId)) ?>">Export department report</a>
+                <a class="btn btn-cimen w-100 py-3" href="<?= e(base_url('/pdf/export.php?type=department_records&department_id=' . $departmentId)) ?>">Export department report</a>
             </div>
         </div>
     </div>

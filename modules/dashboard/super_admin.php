@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
+
+require_role('super_admin');
+
 $stats = [
     ['label' => 'Employees', 'value' => user_count_by_role('employee')],
     ['label' => 'Admins', 'value' => user_count_by_role('admin')],
@@ -23,8 +30,8 @@ $deptData = array_map(static function (array $department) use ($departmentStats)
             <p class="text-secondary mb-0">Monitor the entire HRMS, manage departments, and maintain governance from one view.</p>
         </div>
         <div class="d-flex gap-2">
-            <a class="btn btn-cimen" href="<?= e(base_url('modules/admins/index.php')) ?>">Manage Admins</a>
-            <a class="btn btn-outline-cimen" href="<?= e(base_url('modules/departments/index.php')) ?>">Manage Departments</a>
+            <a class="btn btn-cimen" href="<?= e(base_url('/modules/admins/index.php')) ?>">Manage Admins</a>
+            <a class="btn btn-outline-cimen" href="<?= e(base_url('/modules/departments/index.php')) ?>">Manage Departments</a>
         </div>
     </div>
 
@@ -54,16 +61,16 @@ $deptData = array_map(static function (array $department) use ($departmentStats)
             <div class="dashboard-card p-4 h-100">
                 <h2 class="h5 mb-3">Latest operational access</h2>
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('modules/employees/index.php')) ?>">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('/modules/employees/index.php')) ?>">
                         Employee registry <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('modules/admins/index.php')) ?>">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('/modules/admins/index.php')) ?>">
                         Administrator registry <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('pdf/export.php?type=employees')) ?>">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('/pdf/export.php?type=employees')) ?>">
                         Export employee list <i class="fa-solid fa-file-pdf"></i>
                     </a>
-                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('modules/departments/index.php')) ?>">
+                    <a class="list-group-item list-group-item-action d-flex justify-content-between" href="<?= e(base_url('/modules/departments/index.php')) ?>">
                         Department master data <i class="fa-solid fa-building"></i>
                     </a>
                 </div>

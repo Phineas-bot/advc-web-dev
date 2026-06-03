@@ -122,7 +122,7 @@ require_once __DIR__ . '/../../includes/header.php';
             <h1 class="display-6 fw-bold mt-3 mb-1">Employees</h1>
             <p class="text-secondary mb-0">Create, update, and remove employee records.</p>
         </div>
-        <a class="btn btn-outline-cimen" href="<?= e(base_url('dashboard.php')) ?>">Dashboard</a>
+        <a class="btn btn-outline-cimen" href="<?= e(base_url('/dashboard.php')) ?>">Dashboard</a>
     </div>
 
     <div class="dashboard-card p-4 mb-4">
@@ -155,7 +155,7 @@ require_once __DIR__ . '/../../includes/header.php';
             </div>
             <div class="mt-4 d-flex gap-2">
                 <button class="btn btn-cimen px-4" type="submit"><?= $editEmployee ? 'Update Employee' : 'Save Employee' ?></button>
-                <?php if ($editEmployee): ?><a class="btn btn-outline-cimen px-4" href="<?= e(base_url('modules/employees/index.php')) ?>">Cancel</a><?php endif; ?>
+                <?php if ($editEmployee): ?><a class="btn btn-outline-cimen px-4" href="<?= e(base_url('/modules/employees/index.php')) ?>">Cancel</a><?php endif; ?>
             </div>
         </form>
     </div>
@@ -182,7 +182,7 @@ require_once __DIR__ . '/../../includes/header.php';
                             <td><?= e($employee['email']) ?></td>
                             <td><?= e($employee['department_name'] ?? '') ?></td>
                             <td class="text-end">
-                                <a class="btn btn-sm btn-outline-cimen" href="<?= e(base_url('modules/employees/index.php?edit=' . (int) $employee['id'])) ?>">Edit</a>
+                                <a class="btn btn-sm btn-outline-cimen" href="<?= e(base_url('/modules/employees/index.php?edit=' . (int) $employee['id'])) ?>">Edit</a>
                                 <form method="post" class="d-inline">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="action" value="delete">

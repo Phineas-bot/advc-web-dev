@@ -30,7 +30,7 @@ require_once __DIR__ . '/../../includes/header.php';
 <section class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h4"><?= e($department['department_name']) ?></h1>
-        <a class="btn btn-outline-cimen" href="<?= e(base_url('modules/employees/index.php')) ?>">Back to Employees</a>
+        <a class="btn btn-outline-cimen" href="<?= e(base_url('/modules/employees/index.php')) ?>">Back to Employees</a>
     </div>
 
     <div class="dashboard-card p-4">

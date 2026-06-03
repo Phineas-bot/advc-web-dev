@@ -65,7 +65,7 @@ require_once __DIR__ . '/../../includes/header.php';
             <h1 class="display-6 fw-bold mt-3 mb-1">Department management</h1>
             <p class="text-secondary mb-0">Create and maintain the company department list.</p>
         </div>
-        <a class="btn btn-outline-cimen" href="<?= e(base_url('dashboard.php')) ?>">Back to Dashboard</a>
+        <a class="btn btn-outline-cimen" href="<?= e(base_url('/dashboard.php')) ?>">Back to Dashboard</a>
     </div>
 
     <div class="dashboard-card p-4 mb-4">
@@ -113,7 +113,7 @@ require_once __DIR__ . '/../../includes/header.php';
                             <td><?= (int) $employeeCountStmt->fetchColumn() ?></td>
                             <td><?= department_record_count((int) $department['id']) ?></td>
                             <td class="text-end">
-                                <a class="btn btn-sm btn-outline-cimen" href="<?= e(base_url('modules/departments/index.php?action=edit&id=' . (int) $department['id'])) ?>">Edit</a>
+                                <a class="btn btn-sm btn-outline-cimen" href="<?= e(base_url('/modules/departments/index.php?action=edit&id=' . (int) $department['id'])) ?>">Edit</a>
                                 <form method="post" class="d-inline">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="action" value="delete">

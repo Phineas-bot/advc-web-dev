@@ -1,4 +1,11 @@
 <?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
+
+require_role('employee');
+
 $user = current_user();
 ?>
 <section class="container">
@@ -9,8 +16,8 @@ $user = current_user();
                 <h1 class="h3 fw-bold mb-1"><?= e($user['full_name']) ?></h1>
                 <p class="text-secondary mb-3"><?= e($user['department_name'] ?? 'Unassigned Department') ?></p>
                 <div class="d-grid gap-2">
-                    <a class="btn btn-cimen" href="<?= e(base_url('profile.php')) ?>">Update Profile</a>
-                    <a class="btn btn-outline-cimen" href="<?= e(base_url('register.php')) ?>">Refer another employee</a>
+                    <a class="btn btn-cimen" href="<?= e(base_url('/profile.php')) ?>">Update Profile</a>
+                    <a class="btn btn-outline-cimen" href="<?= e(base_url('/register.php')) ?>">Refer another employee</a>
                 </div>
             </div>
         </div>

@@ -273,6 +273,13 @@ function department_statistics(): array
     return db()->query('SELECT d.id, d.department_name, COUNT(u.id) AS employee_count, COUNT(dr.id) AS record_count FROM departments d LEFT JOIN users u ON u.department_id = d.id AND u.role = "employee" LEFT JOIN department_records dr ON dr.department_id = d.id GROUP BY d.id, d.department_name ORDER BY d.department_name ASC')->fetchAll();
 }
 
+function department_record_count(int $departmentId): int
+{
+    $stmt = db()->prepare('SELECT COUNT(*) FROM department_records WHERE department_id = :department_id');
+    $stmt->execute(['department_id' => $departmentId]);
+    return (int) $stmt->fetchColumn();
+}
+
 function user_count_by_role(string $role): int
 {
     $stmt = db()->prepare('SELECT COUNT(*) FROM users WHERE role = :role');
