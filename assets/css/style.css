@@ -1,0 +1,204 @@
+:root {
+    --cimen-navy: #0f2748;
+    --cimen-blue: #155e9b;
+    --cimen-gold: #c89b3c;
+    --cimen-ink: #132238;
+    --cimen-surface: #f7f9fc;
+    --cimen-line: #dbe3ee;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Montserrat", "Segoe UI", sans-serif;
+    color: var(--cimen-ink);
+    background:
+        radial-gradient(circle at top left, rgba(21, 94, 155, 0.12), transparent 30%),
+        radial-gradient(circle at right top, rgba(200, 155, 60, 0.10), transparent 26%),
+        linear-gradient(180deg, #f8fbff 0%, #eef4fa 100%);
+    min-height: 100vh;
+}
+
+.navbar {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid rgba(15, 39, 72, 0.08);
+}
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--cimen-navy), var(--cimen-blue));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    box-shadow: 0 14px 30px rgba(15, 39, 72, 0.18);
+}
+
+.hero-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 30px;
+    background:
+        linear-gradient(135deg, rgba(15, 39, 72, 0.95), rgba(21, 94, 155, 0.86)),
+        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80') center/cover;
+    color: #fff;
+    box-shadow: 0 24px 50px rgba(15, 39, 72, 0.20);
+}
+
+.hero-panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(255,255,255,0.08), transparent 35%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-badge,
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .45rem .85rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.15);
+    font-size: .875rem;
+}
+
+.section-card,
+.metric-card,
+.auth-card,
+.dashboard-card {
+    background: rgba(255,255,255,0.94);
+    border: 1px solid rgba(15, 39, 72, 0.08);
+    border-radius: 22px;
+    box-shadow: 0 18px 36px rgba(19, 34, 56, 0.08);
+}
+
+.metric-card {
+    min-height: 140px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 22px 42px rgba(19, 34, 56, 0.12);
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.metric-label {
+    color: rgba(19, 34, 56, 0.68);
+    font-size: .95rem;
+}
+
+.table thead th {
+    background: #f3f7fc;
+    color: var(--cimen-navy);
+    border-bottom-width: 1px;
+}
+
+.table-responsive {
+    border-radius: 18px;
+}
+
+.btn-cimen {
+    background: linear-gradient(135deg, var(--cimen-navy), var(--cimen-blue));
+    border: none;
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(15, 39, 72, 0.15);
+}
+
+.btn-cimen:hover {
+    color: #fff;
+    filter: brightness(1.05);
+}
+
+.btn-outline-cimen {
+    border-color: var(--cimen-blue);
+    color: var(--cimen-blue);
+}
+
+.btn-outline-cimen:hover {
+    background: var(--cimen-blue);
+    color: #fff;
+}
+
+.form-control,
+.form-select {
+    border-radius: 14px;
+    min-height: 46px;
+    border-color: #cfd9e6;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 .2rem rgba(21, 94, 155, 0.12);
+    border-color: var(--cimen-blue);
+}
+
+.footer,
+.app-footer {
+    color: rgba(255, 255, 255, 0.88);
+    background: linear-gradient(135deg, var(--cimen-navy), #0b1c34);
+}
+
+.footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #dcecff;
+}
+
+.soft-shadow {
+    box-shadow: 0 14px 28px rgba(19, 34, 56, 0.08);
+}
+
+.avatar-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #dbe8f8, #f4ecd4);
+    color: var(--cimen-navy);
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.mini-stat {
+    border-radius: 18px;
+    background: linear-gradient(180deg, #fff, #f7fafd);
+    border: 1px solid rgba(15, 39, 72, 0.08);
+}
+
+.canvas-wrap {
+    min-height: 240px;
+}
+
+@media (max-width: 767.98px) {
+    .hero-panel {
+        border-radius: 22px;
+    }
+
+    .metric-value {
+        font-size: 1.6rem;
+    }
+}

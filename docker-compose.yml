@@ -1,0 +1,34 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8
+    container_name: cimen-db
+    environment:
+      MYSQL_ROOT_PASSWORD: TempPass123!
+      MYSQL_DATABASE: cimen_hrms
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "3307:3306"
+    networks:
+      - cimen-net
+
+  web:
+    build: .
+    container_name: cimen-web
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: cimen_hrms
+      DB_USER: root
+      DB_PASS: TempPass123!
+    depends_on:
+      - db
+    networks:
+      - cimen-net
+
+networks:
+  cimen-net:
+    driver: bridge
